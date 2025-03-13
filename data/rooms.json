@@ -7,7 +7,7 @@
     "sqft": 3000,
     "capacity": 100,
     "location": "Building A, 3rd Floor",
-    "address": "555 California St, San Francisco, CA 94104",
+    "address": "555 California, San Francisco, CA 94104",
     "amenities": "Projector, Whiteboard, Video Conferencing, Wi-Fi, Sound System",
     "availability": "9 AM - 5 PM",
     "price_per_hour": 150,
@@ -35,7 +35,7 @@
     "sqft": 800,
     "capacity": 15,
     "location": "Building C, 1st Floor",
-    "address": "1600 Amphitheatre Parkway, Mountain View, CA 94043",
+    "address": "1600 Amphitheatre Parkway, CA 94043",
     "amenities": "Whiteboard, Television, Wi-Fi",
     "availability": "10 AM - 4 PM",
     "price_per_hour": 80,
@@ -63,10 +63,25 @@
     "sqft": 200,
     "capacity": 10,
     "location": "Building E, 4th Floor",
-    "address": "10 Downing St, Westminster, London SW1A 2AA, United Kingdom",
+    "address": "10 Downing St, United Kingdom",
+    "amenities": "Conference Phone, Television, Wi-Fi",
+    "availability": "7 AM - 7 PM",
+    "price_per_hour": 60,
+    "image": "room-5.jpg"
+  },
+  {
+    "$id": "6",
+    "user_id": "2",
+    "name": "Quiet Meeting Room",
+    "description": "A small, quiet space ideal for private meetings and interviews.",
+    "sqft": 200,
+    "capacity": 10,
+    "location": "Building E, 4th Floor",
+    "address": "10 Downing St, United Kingdom",
     "amenities": "Conference Phone, Television, Wi-Fi",
     "availability": "7 AM - 7 PM",
     "price_per_hour": 60,
     "image": "room-5.jpg"
   }
+
 ]
