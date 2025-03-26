@@ -8,6 +8,9 @@ const RegisterPage = () => {
             <h2 className="text-2xl font-bold text-center mb-6" style={{color:"#1F313B"}}>
               Register
             </h2>
+            <h2 className="text-1xl font-bold text-center mb-6" style={{color:"#335263"}}>
+              Spot, Schedule, and Secure Your Workplace
+            </h2>
 
             <div className="mb-4">
               <label htmlFor="name" className="block font-bold mb-2" style={{color:"#335263"}}

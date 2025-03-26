@@ -22,7 +22,7 @@ const ViewRoom =  async ({params}) => {
     return (
     <>
     <Heading title={room.name}/>
-    <div className="bg-white shadow rounded-lg p-6">
+    <div className="bg-white shadow rounded-lg p-6" >
         <Link
           href='/'
         //   Go to homepaege
@@ -30,7 +30,7 @@ const ViewRoom =  async ({params}) => {
           className="flex items-center text-gray-600 hover:text-gray-800 mb-4"
         >
           <FaArrowLeft className="inline mr-1" />
-          <span className="ml-2">Back to Rooms Page </span>
+          <span className="ml-2" style={{color:"#1F313B"}}>Back to Rooms Page </span>
         </Link>
 
         <div className="flex flex-col sm:flex-row sm:space-x-6">
@@ -43,25 +43,25 @@ const ViewRoom =  async ({params}) => {
           />
 
           <div className="mt-4 sm:mt-0 sm:flex-1">
-            <p className="text-gray-600 mb-4">
+            <p className=" mb-4" style={{color:"#1F313B"}}> 
               {room.description}
               </p>
 
             <ul className="space-y-2">
               <li>
-                <span className="font-semibold text-gray-800">Size:</span> {room.sqft} sq
+                <span className="font-bold " style={{color:"#335263"}}  >Size:</span> {room.sqft} sq
                 ft
               </li>
               <li>
-                <span className="font-semibold text-gray-800">Availability:</span>
+                <span className="font-bold " style={{color:"#335263"}} >Availability:</span>
                 {room.availability}
               </li>
               <li>
-                <span className="font-semibold text-gray-800">Price:</span>
+                <span className="font-bold " style={{color:"#335263"}} >Price:</span>
                  Rs. {room.price_per_hour}/hour
               </li>
               <li>
-                <span className="font-semibold text-gray-800">Address:</span> {room.address}
+                <span className="font-bold " style={{color:"#335263"}} >Address:</span> {room.address}
               </li>
             </ul>
           </div>
