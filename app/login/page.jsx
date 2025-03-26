@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useFormState } from "react-dom";
 import { useEffect } from "react";
 import userSession from "../serActions/userSession";
-import Router, { useRouter } from "next/router";
+import Router, { useRouter } from "next/navigation";
 const LoginPage = () => {
   const [state, formAction] = useFormState(userSession, {}); // {} is either true or error
   const route = useRouter();
@@ -17,7 +17,7 @@ const LoginPage = () => {
       if(state.success){
         toast.success('Logged in!');
         route.push('/');
-        // to home page we routinggg
+       
       }
       },[state]);
  //console.log(state.error)
@@ -25,15 +25,15 @@ const LoginPage = () => {
         <div className="flex items-center justify-center">
         <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-sm mt-10">
           <form action={formAction}>
-            <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+            <h2 className="text-2xl font-bold text-center  mb-6" style={{color:"#1F313B"}}>
              Login
             </h2>
-            <h2 className="text-1xl font-bold text-center text-gray-800 mb-6">
-              Secure Your Spot
+            <h2 className="text-1xl font-bold text-center mb-6" style={{color:"#335263"}}>
+              Spot, Schedule, and Secure Your Workplace
             </h2>
 
             <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700 font-bold mb-2"
+              <label htmlFor="email" className="block font-bold mb-2" style={{color:"#335263"}}
                 >Email</label
               >
               <input
@@ -46,7 +46,7 @@ const LoginPage = () => {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="password" className="block text-gray-700 font-bold mb-2"
+              <label htmlFor="password" className="block  font-bold mb-2" style={{color:"#335263"}}
                 >Password</label
               >
               <input
@@ -61,14 +61,15 @@ const LoginPage = () => {
             <div className="flex flex-col gap-5">
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-900 font-bold"
+                
               >
                 Login
               </button>
 
-              <p className="text-center">
+              <p className="text-center" style={{color:"#1F313B"}}>
                 No account?
-                <Link href="/register" className="text-blue-500 ">Register</Link>
+                <Link href="/register" className="text-blue-500 font-bold ">Register</Link>
               </p>
             </div>
           </form>

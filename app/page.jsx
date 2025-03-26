@@ -6,7 +6,7 @@ export default async function Home() {
   const rooms = await getAllRooms();
   return (
     <>
-   <Heading title="Rooms"/>
+   <Heading title="Rooms" />
     {rooms.length > 0 ? (
       rooms.map((room) => <CardRoom room={room} key={room.$id}/>)
     ): ( <p>No Rooms Available Right Now</p>) }

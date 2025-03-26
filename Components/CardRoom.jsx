@@ -4,7 +4,7 @@ import Link from "next/link";
 const CardRoom = ({ room }) => {
     return ( 
         <div
-        className="bg-white shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center"
+        className="bg-white shadow-2xl rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center"
       >
         <div className="flex flex-col sm:flex-row sm:space-x-4 ">
           <Image
@@ -12,20 +12,20 @@ const CardRoom = ({ room }) => {
             width={400}
             height={100}
             alt={room.name}
-            className="w-full sm:w-50 sm:h-50 mb-3 sm:mb-0 object-cover rounded-lg"
+            className="w-full sm:w-50 sm:h-50 mb-3 text-bold sm:mb-0 object-cover rounded-lg"
           />
           <div className="space-y-1 mt-3">
-            <h4 className="text-lg font-semibold">{ room.name }</h4>
+            <h4 className="text-lg font-bold" style={{color:"#1F313B"}}>{ room.name }</h4>
             <p className="text-sm text-gray-600">
-              <span className="font-semibold text-gray-800"> Address: </span>
+              <span className=" font-bold "style={{color:"#335263"}}> Address: </span>
               {room.address}
               </p>
             <p className="text-sm text-gray-600">
-              <span className="font-semibold text-gray-800"> Availability: </span>
+              <span className="font-bold " style={{color:"#335263"}}> Availability: </span>
                {room.availability}
             </p>
             <p className="text-sm text-gray-600">
-              <span className="font-semibold text-gray-800"> Price: </span> Rs.  
+              <span className="font-bold " style={{color:"#335263"}}> Price: </span> Rs.  
           {room.price_per_hour}        
               </p>
           </div>
@@ -35,7 +35,7 @@ const CardRoom = ({ room }) => {
           >
           <Link
             href={`/rooms/${room.$id}`}
-            className="bg-blue-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
+            className="bg-blue-600 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-900"
             >View Room
             </Link>
         </div>
