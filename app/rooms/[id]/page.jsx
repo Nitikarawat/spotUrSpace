@@ -4,11 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import BookingForm from "@/Components/BookingForm";
 import { FaArrowLeft, FaIcons } from "react-icons/fa";
+import getSingleRoom from "@/app/serActions/getSingleRoom";
 
-const ViewRoom = ({params}) => {
+const ViewRoom =  async ({params}) => {
    const { id }=params;
   
-   const room = rooms.find
+   const room = await getSingleRoom(id);
    (
     (room) =>room.$id===id
     );
