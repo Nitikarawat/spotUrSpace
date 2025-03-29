@@ -27,11 +27,13 @@ const createAdminClient = async () => {
 const createSessionClient = async (session) => {
     const client = new Client()
     .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT) 
-        .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT) ;
+        .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT) 
+        .setSelfSigned(true);
     
     if(session)
     {
         client.setSession(session);
+        //client.setJWT(session);
     }
 
     return { 

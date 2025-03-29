@@ -16,14 +16,24 @@ async function userSession(prevState, formData) {
     }
     const {account} = await createAdminClient();
     try{
+
         const sessionid = await account.createEmailPasswordSession(email, password);
-        (await cookies()).set('user-session',sessionid.secret,{
+      //  console.log('Session Created:', sessionid);
+        // console.log('Session Expiration:', sessionid.expires); 
+
+        const cookieStore = await cookies(); 
+        await cookieStore.set('appwrite-session',sessionid.secret,{
             httpOnly:true,
             secure:true,
             sameSite:'strict',
-            expires:new Date(sessionid.expires ),
+            expires:new Date(sessionid.expire),
             path:'/'
         });
+      //  console.log('Session Cookie get vaue:', cookieStore.get('user-session'));
+       // console.log('Session Cookie Value:', sessionid.value);
+        // console.log('Session Expiration:', sessionid.expire);
+       // console.log('Session Response:', sessionid);
+
         return { success: true, error: null };
     }
     catch(error)

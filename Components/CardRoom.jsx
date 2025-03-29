@@ -17,7 +17,7 @@ const CardRoom = ({ room }) => {
           <div className="space-y-1 mt-3">
             <h4 className="text-lg font-bold" style={{color:"#1F313B"}}>{ room.name }</h4>
             <p className="text-sm text-gray-600">
-              <span className=" font-bold " style={{color:"#335263"}}> Address: </span>
+              <span className=" font-bold "style={{color:"#335263"}}> Address: </span>
               {room.address}
               </p>
             <p className="text-sm text-gray-600">
