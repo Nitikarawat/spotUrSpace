@@ -1,14 +1,38 @@
+'use client';
 import Link from "next/link";
-
+import EndSession from "@/app/serActions/EndSession";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/authContext";
 
 const Entry = () => {
+
+
+  const route = useRouter();
+      const {isAuthenticated, setIsAuthenticated} = useAuth(null);
+     
+   
+     const logoutLogic = async () =>{
+      const { success, error } = await EndSession();
+      if(success)
+      {      setIsAuthenticated(false);
+  
+        route.push('/login');
+      }
+      else{
+  toast.error(error);
+      }
+     }
+
+
     return (
       <>
+       {!isAuthenticated && ( 
+        <>
         <div
           className="relative min-h-[500px] rounded-2xl bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "linear-gradient(to right, rgba(44, 56, 85, 0.9), rgba(100, 125, 187, 0.1)), url('assets/E1.avif')",
+              "linear-gradient(to right, rgba(44, 56, 85, 0.9), rgba(100, 125, 187, 0.1))",
           }}
         >
           <div className="max-w-[1200px] mx-auto p-8">
@@ -43,15 +67,15 @@ const Entry = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
               {[
                 {
-                  img: "M1.jpeg",
+                  img: "/M1.jpeg",
                   text: `"The space was perfect for our brainstorming session! Great amenities and a quiet atmosphere." – Rohit Sharma, Marketing Manager, ZYC COORPORATES`,
                 },
                 {
-                  img: "M2.jpeg",
+                  img: "/M2.jpeg",
                   text: `"Booked a meeting room for my team, and the experience was flawless. Great WiFi, comfortable chairs, and a quiet ambiance. Highly recommended!" – Rajesh Verma, Product Manager, TRIVIANA`,
                 },
                 {
-                  img: "M3.jpeg",
+                  img: "/M3.jpeg",
                   text: `"Loved the seamless booking experience. The room was well-lit and comfortable!" – Ananya Mehta, Freelancer, EXIGO`,
                 },
               ].map((client, index) => (
@@ -88,8 +112,11 @@ const Entry = () => {
             </Link>
           </div>
         </section>
+        </> 
+       )};
       </>
-    );
+ 
+  );
   };
   
   export default Entry;

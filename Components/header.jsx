@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import auth from "@/app/serActions/auth";
 import { useAuth } from "@/context/authContext";
+import CardRoom from "./CardRoom";
 
 const Header = () => {
 
@@ -22,7 +23,8 @@ const Header = () => {
     if(success)
     {      setIsAuthenticated(false);
 
-      route.push('/login');
+      toast.info("Logged Out!");
+      route.push('/');
     }
     else{
 toast.error(error);

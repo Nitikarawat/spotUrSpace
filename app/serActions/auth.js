@@ -13,11 +13,10 @@ async function auth() {
         isAuthenticated: false,
     };
   }
-  console.log("after if not session");
+  console.log(" if session");
   try {
-   // console.log("inside if session try ");
     const { account } = await createSessionClient(session.value);
-  //  console.log("account : ", account);
+  console.log("account : ", account);
 
     const user = await account.get();
     console.log("user : ", user);
@@ -29,13 +28,12 @@ async function auth() {
         name: user.name,
         email: user.email,
       },
-      
-
     };
 
 
   } catch (error) {
     console.log("inside if error block");
+    console.log(error);
     return {
       isAuthenticated: false,
     };

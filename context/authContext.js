@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
       const { isAuthenticated, user } = await auth();
       setIsAuthenticated(isAuthenticated);
       setCurrentUser(user);
+      console.log("Auth context User : ", user);
     };
 
     checkAuthentication();

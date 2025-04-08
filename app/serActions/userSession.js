@@ -7,7 +7,7 @@ async function userSession(prevState, formData) {
     const email = formData.get('email');
 
     const password = formData.get('password');
-  //  console.log(email, password);
+  
     if (!email || !password)
     {
         return{
@@ -18,8 +18,7 @@ async function userSession(prevState, formData) {
     try{
 
         const sessionid = await account.createEmailPasswordSession(email, password);
-      //  console.log('Session Created:', sessionid);
-        // console.log('Session Expiration:', sessionid.expires); 
+      
 
         const cookieStore = await cookies(); 
         await cookieStore.set('appwrite-session',sessionid.secret,{
@@ -29,11 +28,8 @@ async function userSession(prevState, formData) {
             expires:new Date(sessionid.expire),
             path:'/'
         });
-      //  console.log('Session Cookie get vaue:', cookieStore.get('user-session'));
-       // console.log('Session Cookie Value:', sessionid.value);
-        // console.log('Session Expiration:', sessionid.expire);
-       // console.log('Session Response:', sessionid);
-
+     
+        console.log("User session creation in Usersession: ", cookieStore);
         return { success: true, error: null };
     }
     catch(error)
