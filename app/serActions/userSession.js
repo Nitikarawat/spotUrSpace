@@ -17,19 +17,17 @@ async function userSession(prevState, formData) {
     const {account} = await createAdminClient();
     try{
 
-        const sessionid = await account.createEmailPasswordSession(email, password);
-      
+        const session = await account.createEmailPasswordSession(email, password);
+        console.log("Session created :", session);
 
-        const cookieStore = await cookies(); 
-        await cookieStore.set('appwrite-session',sessionid.secret,{
-            httpOnly:true,
-            secure:true,
-            sameSite:'strict',
-            expires:new Date(sessionid.expire),
-            path:'/'
-        });
-     
-        console.log("User session creation in Usersession: ", cookieStore);
+         (await cookies()).set('appwrite-session',session.secret, 
+            {
+                httpOnly:true,
+                secure:true,
+                sameSite:'strict',
+                expires:new Date(session.expire),
+                path:'/'
+            });
         return { success: true, error: null };
     }
     catch(error)

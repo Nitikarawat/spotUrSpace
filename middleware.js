@@ -3,8 +3,8 @@ import auth from './app/serActions/auth';
 
 export async function middleware(request) {
   
-const {isAuth} = await auth();
-if(!isAuth){
+const {isAuthenticated} = await auth();
+if(!isAuthenticated){
 
     return NextResponse.redirect(new URL('/login', request.url));
 }  

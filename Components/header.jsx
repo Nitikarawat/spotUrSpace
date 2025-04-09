@@ -2,15 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import logofinal from "@/Assets/Images/logofinal.png"
-import { FaIcons, FaSign, FaSignInAlt, FaUser } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
 import { PiBuildingsFill, PiSignOutBold } from "react-icons/pi"
 import EndSession from "@/app/serActions/EndSession";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import auth from "@/app/serActions/auth";
 import { useAuth } from "@/context/authContext";
-import CardRoom from "./CardRoom";
 
 const Header = () => {
 
@@ -18,10 +15,11 @@ const Header = () => {
     const {isAuthenticated, setIsAuthenticated} = useAuth(null);
    
  
-   const logoutLogic = async () =>{
+   const handleLogout = async () =>{
     const { success, error } = await EndSession();
     if(success)
-    {      setIsAuthenticated(false);
+    {      
+      setIsAuthenticated(false);
 
       toast.info("Logged Out!");
       route.push('/');
@@ -100,7 +98,7 @@ toast.error(error);
                   <PiBuildingsFill className="inline mr-1" /> My Rooms
                 </Link>
                 <button
-                 onClick={logoutLogic}
+                 onClick={handleLogout}
                   className="mx-3 text-gray-800 hover:text-gray-600"
                 >
                   <PiSignOutBold className="inline mr-1" /> Sign Out

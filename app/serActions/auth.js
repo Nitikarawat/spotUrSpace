@@ -3,11 +3,10 @@ import { createSessionClient } from '@/config/appwrite';
 import { cookies } from 'next/headers';
 
 async function auth() {
-    const cookieStore = await cookies();
-  const session =  cookieStore.get('appwrite-session');
+  const sessionCookie =  (await cookies()).get('appwrite-session');
  
   
-  if (!session) {
+  if (!sessionCookie) {
     console.log("inside if not session");
     return {
         isAuthenticated: false,
@@ -15,7 +14,7 @@ async function auth() {
   }
   console.log(" if session");
   try {
-    const { account } = await createSessionClient(session.value);
+    const { account } = await createSessionClient(sessionCookie.value);
   console.log("account : ", account);
 
     const user = await account.get();
@@ -30,10 +29,10 @@ async function auth() {
       },
     };
 
-
-  } catch (error) {
+  } 
+  catch (error) {
     console.log("inside if error block");
-    console.log(error);
+    console.log("Error Occured");
     return {
       isAuthenticated: false,
     };

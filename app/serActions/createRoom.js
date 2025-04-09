@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache';
 
 async function createRoom(previousState, formData) {
 // getting db instance
-  const { databases } = await createAdminClient();
+  const { databases, storage } = await createAdminClient();
 
   try { 
     const { user } = await auth();
@@ -16,8 +16,26 @@ async function createRoom(previousState, formData) {
         error: 'Error User login data fetch issue!',
       };
     }
+  
+let imageId;
 
-
+const img= formData.get('image');
+if (img && img.size > 0 && img.name !== 'undefined') {
+  try {
+    // Upload
+    const response = await storage.createFile('rooms', ID.unique(), img);
+    imageId = response.$id;
+  } 
+  catch (error) {
+    console.log('Error uploading image', error);
+    return {
+      error: 'Error uploading image',
+    };
+  }
+} 
+else {
+  console.log('No image file provided or file is invalid');
+}
     const newRoom = await databases.createDocument(
       process.env.NEXT_PUBLIC_APPWRITE_DATABASE,
       process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ROOMS,
@@ -33,6 +51,8 @@ async function createRoom(previousState, formData) {
         availability: formData.get('availability'),
         price_per_hour: formData.get('price_per_hour'),
         amenities: formData.get('amenities'),
+        image: imageId,
+
       }
     );
 

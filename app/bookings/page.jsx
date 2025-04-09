@@ -1,8 +1,5 @@
 import Heading from "@/Components/Heading";
-import auth from "../serActions/auth";
-import { revalidatePath } from 'next/cache';
-import { useAuth } from "@/context/authContext";
-
+import { FaPen , FaEye, FaTrash} from "react-icons/fa";
 const BookingPage = () => {
 
     return (
@@ -28,13 +25,19 @@ const BookingPage = () => {
             href="room.html"
             className="bg-blue-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
           >
-            View Room
+           <FaEye className='inline mr-1' />  View Room
+          </a>
+          <a
+            href="#"
+            className='bg-amber-400 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-amber-500'
+          >
+            <FaPen className='inline mr-1' /> Update
           </a>
           <button
             href="#"
             className="bg-red-500 text-white px-4 py-2 rounded w-full sm:w-auto text-center hover:bg-red-700"
           >
-            Cancel Booking
+           <FaTrash className='inline mr-1' /> Cancel Booking
           </button>
         </div>
       </div>
@@ -58,13 +61,20 @@ const BookingPage = () => {
             href="room.html"
             className="bg-blue-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
           >
-            View Room
+               <FaEye className='inline mr-1' />View Room
           </a>
+          <a
+            href="#"
+            className='bg-amber-400 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-amber-500'
+          >
+            <FaPen className='inline mr-1' /> Update
+          </a>
+         
           <button
             href="#"
             className="bg-red-500 text-white px-4 py-2 rounded w-full sm:w-auto text-center hover:bg-red-700"
           >
-            Cancel Booking
+            <FaTrash className='inline mr-1' />Cancel Booking
           </button>
         </div>
       </div>
@@ -88,13 +98,19 @@ const BookingPage = () => {
             href="room.html"
             className="bg-blue-500 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-blue-700"
           >
-            View Room
+              <FaEye className='inline mr-1' /> View Room
+          </a>
+          <a
+            href="#"
+            className='bg-amber-400 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-amber-500'
+          >
+            <FaPen className='inline mr-1' /> Update
           </a>
           <button
             href="#"
             className="bg-red-500 text-white px-4 py-2 rounded w-full sm:w-auto text-center hover:bg-red-700"
           >
-            Cancel Booking
+            <FaTrash className='inline mr-1' /> Cancel Booking
           </button>
         </div>
       </div>

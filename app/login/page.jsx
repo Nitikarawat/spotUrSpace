@@ -1,14 +1,14 @@
 'use client';
 import { toast } from "react-toastify";
 import Link from "next/link";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { useEffect } from "react";
 import userSession from "../serActions/userSession";
 import Router, { useRouter } from "next/navigation";
 import { useAuth } from "@/context/authContext";
 const LoginPage = () => {
 
-  const [state, formAction] = useFormState(userSession, {}); // {}   either true or error
+  const [state, formAction] = useActionState(userSession, {}); // {}   either true or error
   const { isAuthenticated, setIsAuthenticated } = useAuth();
 
   const route = useRouter();
@@ -18,10 +18,10 @@ const LoginPage = () => {
        
         toast.error(state.error);
       }
+
       if(state.success){
         toast.success('Logged in!');
         setIsAuthenticated(true);
-
         route.push('/');
        
       }

@@ -26,7 +26,8 @@ useEffect( () => {
 
 }, [state])
 
-    return ( <div className="flex items-center justify-center">
+    return ( 
+    <div className="flex items-center justify-center">
         <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-sm mt-5">
           <form action={formAction}>
             <h2 className="text-2xl font-bold text-center mb-6" style={{color:"#1F313B"}}>
