@@ -1,9 +1,33 @@
-const BookingForm = () => {
+'use client';
+import { toast } from "react-toastify";
+import { useActionState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import bookRoom from "@/app/serActions/bookRoom";
+
+
+const BookingForm = ({room}) => {
+
+
+    const [state, formAction] = useActionState(bookRoom, {});
+    const router = useRouter();
+
+    useEffect(()=>{
+
+      if(state.error) 
+          toast.error(state.error);
+      if(state.success)
+        {  toast.success("Room Has Been Booked!");
+          router .push('/bookings');
+        }
+    })
+
     return ( 
         <div className="mt-6">
           <h2 className="text-xl font-bold" style={{color:"#1F313B"}}>Book this Room</h2>
-          <form className="mt-4">
+          <form className="mt-4" action={formAction}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <input type="hidden" name="room_id" value={room.$id}/>
               <div>
                 <label
                   htmlFor="check_in_date"

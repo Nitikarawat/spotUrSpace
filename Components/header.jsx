@@ -8,6 +8,7 @@ import EndSession from "@/app/serActions/EndSession";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useAuth } from "@/context/authContext";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
 

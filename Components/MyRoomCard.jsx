@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaTrash, FaEye, FaPen } from "react-icons/fa";
+import { FaPen,FaTrash, FaEye } from "react-icons/fa";
 import DeleteRoomButton from "./DeleteRoomButton";
 const MyRoomCard = ({ room }) => {
     return ( 
@@ -19,7 +19,7 @@ const MyRoomCard = ({ room }) => {
             href="#"
             className='bg-amber-400 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-amber-500'
           >
-            <FaPen className='inline mr-1' /> Update
+         <FaPen className='inline mr-1' /> Update
           </Link>
           <DeleteRoomButton roomId={room.$id} />
 

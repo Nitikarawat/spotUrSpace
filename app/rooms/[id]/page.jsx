@@ -7,7 +7,7 @@ import { FaArrowLeft, FaIcons } from "react-icons/fa";
 import getSingleRoom from "@/app/serActions/getSingleRoom";
 
 const ViewRoom =  async ({params}) => {
-   const { id }=params;
+   const { id }= await params;
   
    const room = await getSingleRoom(id);
    (
@@ -73,7 +73,7 @@ const ViewRoom =  async ({params}) => {
             </ul>
           </div>
         </div>
-        <BookingForm/>
+        <BookingForm room={room}/>
       </div>
 
     </>  

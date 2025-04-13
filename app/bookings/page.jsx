@@ -12,10 +12,10 @@ const BookingPage = () => {
         <div>
           <h4 className="text-lg font-semibold">Training Room</h4>
           <p className="text-sm text-gray-600">
-            <strong>Check In:</strong> July 5, 2024 11:00am
+            <strong>Start Time:</strong> July 5, 2024 11:00am
           </p>
           <p className="text-sm text-gray-600">
-            <strong>Check Out:</strong> July 5, 2024 1:00pm
+            <strong>End Time:</strong> July 5, 2024 1:00pm
           </p>
         </div>
         <div
@@ -48,10 +48,10 @@ const BookingPage = () => {
         <div>
           <h4 className="text-lg font-semibold">Training Room</h4>
           <p className="text-sm text-gray-600">
-            <strong>Check In:</strong> July 5, 2024 11:00am
+            <strong>Start Time:</strong> July 5, 2024 11:00am
           </p>
           <p className="text-sm text-gray-600">
-            <strong>Check Out:</strong> July 5, 2024 1:00pm
+            <strong>End Time:</strong> July 5, 2024 1:00pm
           </p>
         </div>
         <div
@@ -85,10 +85,10 @@ const BookingPage = () => {
         <div>
           <h4 className="text-lg font-semibold">Training Room</h4>
           <p className="text-sm text-gray-600">
-            <strong>Check In:</strong> July 5, 2024 11:00am
+            <strong>Start Time:</strong> July 5, 2024 11:00am
           </p>
           <p className="text-sm text-gray-600">
-            <strong>Check Out:</strong> July 5, 2024 1:00pm
+            <strong>End Time:</strong> July 5, 2024 1:00pm
           </p>
         </div>
         <div

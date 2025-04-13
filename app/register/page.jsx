@@ -89,7 +89,7 @@ useEffect( () => {
                 id="confirm-password"
                 name="confirm-password"
                 className="border rounded w-full py-2 px-3"
-                required
+                  
               />
             </div>
 

@@ -12,5 +12,5 @@ return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/bookings', '/rooms/add']
+  matcher: ['/bookings', '/rooms/add', '/rooms/my']
 }; 

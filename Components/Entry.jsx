@@ -113,10 +113,10 @@ const Entry = () => {
           </div>
         </section>
         </> 
-       )};
+       )}
       </>
  
-  );
+  )
   };
   
   export default Entry;
