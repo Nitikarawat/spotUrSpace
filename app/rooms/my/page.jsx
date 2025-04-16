@@ -1,6 +1,7 @@
-import Heading from '@/Components/Heading';
 import fetchMyRoom from '@/app/serActions/fetchMyRoom';
 import MyRoomCard from '@/Components/MyRoomCard';
+import Heading from '@/Components/Heading';
+
 const MyRooom = async () => {
     const rooms = await fetchMyRoom();
     return ( 
