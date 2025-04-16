@@ -16,7 +16,7 @@ const MyRoomCard = ({ room }) => {
             <FaEye className='inline mr-1' /> View Room
           </Link>
           <Link
-            href="#"
+            href={`/rooms/update/${room.$id}/`}
             className='bg-amber-400 text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-amber-500'
           >
          <FaPen className='inline mr-1' /> Update
