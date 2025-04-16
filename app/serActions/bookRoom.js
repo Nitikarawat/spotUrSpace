@@ -6,13 +6,14 @@ import { redirect } from 'next/navigation';
 import { ID } from 'node-appwrite';
 import auth from './auth';
 import { revalidatePath } from 'next/cache';
+import checkRoomAvailability from './checkRoomAvailability';
 
 async function bookRoom(previousState, formData) {
   const sessionCookie = (await cookies()).get('appwrite-session');
   if (!sessionCookie) {
     redirect('/login');
   }
-
+  
   try {
     const { databases } = await createSessionClient(
       sessionCookie.value
@@ -30,12 +31,20 @@ async function bookRoom(previousState, formData) {
      const checkOutDate =  formData.get('check_out_date');
      const checkInTime =  formData.get('check_in_time');
      const checkOutTime =  formData.get('check_out_time');
-
+    const roomId =formData.get('room_id');
 
     const checkInDateTime =  `${checkInDate}T${checkInTime}`;
     const checkOutDateTime =  `${checkOutDate}T${checkOutTime}`;
 
-    
+    // chek room availability
+      const isAvailable = await checkRoomAvailability(roomId,checkInDateTime,checkOutDateTime);
+
+      if(!isAvailable)
+      {
+        return{
+          error:"Room Already Booked For This Time Slot"
+        };
+      }
     const bookingData = {
         start_time: checkInDateTime,
         end_time : checkOutDateTime,
@@ -60,10 +69,9 @@ async function bookRoom(previousState, formData) {
   
   catch (error) {
     console.log('Failed to book rooms', error);
-    return  
-    {
-        error : "something went wrong"
-    }
+    return  {
+      error: 'Something went wrong booking the room',
+    };
 }
 }
 
